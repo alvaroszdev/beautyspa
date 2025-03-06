@@ -1,0 +1,73 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *; // Asegúrate de que la ruta esté correcta
+
+header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    .header__login {
+        display: flex;
+        align-items: flex-end;  // Mantén el alineamiento hacia abajo
+        justify-content: flex-end;
+        margin-left: 200px;
+        margin-right: -290px;
+        ul {
+            @include reset-list();  // Asegúrate de tener este mixin definido
+            gap: 40px;
+            position: relative;  // Necesario para el uso de z-index
+            z-index: 10;
+            display: flex; // Asegúrate de que la lista se muestre en fila (si no está ya así)
+            list-style-type: none; // Asegúrate de que no tenga puntos de lista
+            
+            
+            .iconav {
+                img {
+                    width: 25px;
+                }
+            }
+
+            .barra {
+                a {
+                    text-decoration: underline;
+                    
+                }
+            }
+        }
+
+        a {
+            color: $primary-color;
+            font-family: $primary-font;
+            text-decoration: none;
+
+            &:hover {
+                color: $primary-color;
+                background-color: $secondary-color;
+            }
+        }
+
+        .btn {
+            @include button(); // Asegúrate de tener este mixin definido
+            display: inline-block; // Asegura que el tamaño se mantenga
+            box-sizing: border-box; // Evita cambios inesperados en el tamaño
+
+            a {
+                color: $secondary-color;  // Asegura que el texto sea visible
+                text-decoration: none; // Evita subrayados inesperados
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+            }
+
+            &:hover {
+                background-color: $secondary-color;
+
+                a {
+                    color: $primary-color; // Cambia el color del texto en hover
+                }
+            }
+        }
+    }
+}

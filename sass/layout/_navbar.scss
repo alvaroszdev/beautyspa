@@ -1,0 +1,50 @@
+@use '../abstracts/mixins' as *; // Asegúrate de que la ruta esté correcta
+@use '../abstracts/variables' as *; // Asegúrate de que la ruta esté correcta
+
+nav.header__nav {
+  z-index: 9999; // Asegura que el nav esté por encima de otros elementos
+  ul {
+    @include reset-list();
+    gap: 56px;
+    display: flex;  // Asegura que los elementos estén en una fila horizontal
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    color: #264065;
+    text-decoration: none;
+    font-weight: 300;
+    padding: 10px; // Asegura que haya un área de clic más grande para el hover
+
+    &:hover {
+      color:#264065 ; // Cambia el fondo cuando se pasa el ratón por encima
+      font-weight: bold;
+      font-size: 30px;
+      text-decoration:wavy;
+    }
+    li {
+      position: relative; // Necesario para que el submenú se posicione correctamente
+    }
+  }
+  .header__nav__list li:hover ul{
+    display: block;
+
+  }
+  .header__nav__list ul{
+    display: none;
+    position: absolute;
+    font-weight: 600;
+    padding: 10px;
+    margin: 0;
+  }
+
+
+}
+     
+
+ 
+
+
+    
+   
